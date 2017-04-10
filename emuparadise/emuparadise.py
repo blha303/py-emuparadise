@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 """
-usage: emuparadise --url=<url>
-       emuparadise <system> <game>
+usage: emuparadise <system> <game>
+       emuparadise --url=<url>
        emuparadise --search=<term>
+       emuparadise --list-systems
        emuparadise (-h | --help)
        emuparadise --version
 
@@ -147,8 +148,10 @@ def parse_url(emup_url):
 
 def main():
     args = docopt(__doc__, version="emuparadise 0.0.1")
-    if args["--url"]:
-        get(*parse_url(args["--url"]))
+    if args["--list-systems"]:
+        print("\n".join(sorted(SYSTEMS.keys())))
+    elif args["--url"]:
+        return get(*parse_url(args["--url"]))
     elif args["--search"]:
         results = search(args["--search"], p=True)
         result = None
@@ -163,10 +166,11 @@ def main():
             if result["category"] == "Search for":
                 results = search(result["label"], p=True)
                 result = None
-        get(*parse_url(resolve(result["gid"])))
+        return get(*parse_url(resolve(result["gid"])))
     elif args["<system>"] and args["<game>"]:
-        get(args["<system>"], args["<game>"])
-    return 0
+        return get(args["<system>"], args["<game>"])
+    else:
+        return 99
 
 if __name__ == "__main__":
     exit(main())
