@@ -43,16 +43,58 @@ SYSTEMS = {
     "Sega Dreamcast": (ALTSERVER, "/Dreamcast", "zip"),
     "Sega Genesis - Sega Megadrive": (ALTSERVER, "/may/120/Sega Genesis Roms", "zip"),
     "Sega Master System": (SERVER, "/may/120/Sega Master System", "zip"),
+# Sega Saturn appends a tag to the filename /Saturn/Sega Saturn/Sonic R (U)(Saturn).zip
+#   "Sega Saturn": (SERVER, "/Saturn/Sega Saturn", "zip"),
+# Sony Playstation uses abnormal filenames, Crash Team Racing [U] >> /PSX-Redump/CTR - Crash Team Racing (USA).7z
+#   "Sony Playstation": (ALTSERVER, "/PSX-Redump", "7z"),
     "Sony Playstation - Demos": (SERVER, "/may/2/Complete Sony Playstation NTSC-U Collection - Demos v0.93", "rar"),
     "Sony Playstation 2": (SERVER, "/Playstation2", "7z"),
     "Super Nintendo Entertainment System (SNES)": (SERVER, "/may/120/Super Nintendo Roms", "zip"),
-# MAME work in progress
+# MAME uses legacy filenames /NewAdditions/MAMEnon/mslug6.zip
+#   "M.A.M.E. - Multiple Arcade Machine Emulator": (ALTSERVER, "/NewAdditions/MAMEnon", "zip"),
+# Neo Geo arcade roms use legacy filenames /bks/101/Neo-Geo/mslug5.zip
+#   "Neo Geo": (SERVER, "/bks/101/Neo-Geo", "zip"),
     "Sega NAOMI": (SERVER, "/bks/94/Naomi", "zip"),
     "Atari Lynx": (ALTSERVER, "/Atari - Lynx", "zip"),
     "Bandai Wonderswan": (ALTSERVER, "/may/120/WonderswanMono", "ws"),
     "Bandai Wonderswan Color": (ALTSERVER, "/may/120/WonderswanColor", "wsc"),
     "Neo Geo Pocket - Neo Geo Pocket Color (NGPx)": (SERVER, "/may/120/NGPx", "7z"),
-# NDS work in progress
+# NDS uses scene numbering /Nintendo DS/Nintendo DS 3501 - 3600/3541 - Pokemon Platinum Version (US)(XenoPhobia).7z
+#   "Nintendo DS": (SERVER, "/Nintendo DS/Nintendo DS {} - {}", "7z"),
+# GBA uses release filenames and scene numbering /Gameboy Advance Roms/GBA Roms 1901 - 2000/1986 - Pokemon Emerald (U)(TrashMan).zip
+#   "Nintendo Game Boy Advance": (SERVER, "/Gameboy Advance Roms/GBA Roms {} - {}", "zip"),
+    "Nintendo Game Boy": (SERVER, "/may/120/Gameboy Roms", "zip"),
+    "Nokia N-Gage": (SERVER, "/bks/101/Nokia - N-Gage", "zip"),
+    "Sega Game Gear": (SERVER, "/may/120/Sega Game Gear", "zip"),
+# PSP uses release filenames /pspisos/Kanon_JPN_PROPER_PSP-iND.rar
+#   "Sony Playstation Portable": (SERVER, "/pspisos", "rar"),
+# PSX2PSP uses release filenames /PSX2PSP/Crash Bandicoot [U] [SCUS-94900].rar
+#   "PSX on PSP": (SERVER, "/PSX2PSP", "rar"),
+    "Sony PocketStation": (SERVER, "/PocketStation/Converted Roms", "bin"),
+    "Abandonware": (ALTSERVER, "/may/1/DOSCollection", "zip"),
+    "DOS": (ALTSERVER, "/may/1/DOSCollection", "zip"),
+    "Acorn Archimedes": (ALTSERVER, "/may/Acorn/Archimedes/Games", "zip"),
+# Acorn BBC Micro and Acorn Electron have a tag at the end of the filename that is included in the path
+# e.g Sphinx Adventure (198x)(Acornsoft) [UEF] >> [UEF]/Sphinx Adventure (198x)(Acornsoft).zip
+#   "Acorn BBC Micro": (ALTSERVER, "/may/Acorn/BBC Micro/Games/{tag}", "zip"),
+#   "Acorn Electron": (SERVER, "/may/Acorn/Electron/Games/{tag}", "zip"),
+# Amiga titles are downloaded from static.emuparadise.me, TODO separate handler needed
+# Amiga CD titles use release filenames /bks/Amiga-CD/Civilization (1994)(Acid Software)(en-de)[!].zip
+#   "Amiga CD": (ALTSERVER, "/bks/Amiga-CD", "zip"),
+# Amiga CD32 titles use release filenames /bks/101/AmigaCD32/Zool - Ninja of the 'Nth' Dimension (1993)(Gremlin)[!].zip
+#   "Amiga CD32": (SERVER, "/bks/101/AmigaCD32", "zip"),
+    "Amstrad CPC": (ALTSERVER, "/bks/CPC", "dsk"),
+    "Apple ][": (SERVER, "/bks/101/Apple2/roms", "zip"),
+    "Apple II": (SERVER, "/bks/101/Apple2/roms", "zip"),
+    "Apple 2": (SERVER, "/bks/101/Apple2/roms", "zip"),
+    "Atari 800": (SERVER, "/may/Atari800", "zip"),
+    "Atari ST": (SERVER, "/may/AtariST/Games/[STX]", "zip"),
+    "Commodore 64 Preservation Project": (SERVER, "/bks/94/Commodore 64 PP", "zip"),
+    "Commodore 64 (Tapes)": (SERVER, "/bks/94/Commodore 64 Tapes", "zip"),
+    "ScummVM": (SERVER, "/bks/new/ScummVM/Working", "zip"),
+    "Sharp X68000": (ALTSERVER, "/bks/101/Sharp X68000", "zip"),
+    "ZX Spectrum (Tapes)": (SERVER, "/bks/94/Sinclair/Roms/ZX Spectrum - Games - [TAP]", "tap"),
+    "ZX Spectrum (Z80)": (ALTSERVER, "/bks/94/Sinclair/Roms/ZX Spectrum - Games - [Z80]", "z80")
 }
 
 class NotFound(Exception):
