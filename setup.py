@@ -3,6 +3,7 @@ from setuptools import setup
 setup(
     name = "emuparadise",
     packages = ["emuparadise"],
+    install_requires = ["requests", "docopt"],
     entry_points = {
         "console_scripts": ['emuparadise = emuparadise.emuparadise:main']
         },
