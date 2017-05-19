@@ -99,14 +99,17 @@ SYSTEMS = {
 }
 
 class NotFound(Exception):
-    pass
+    pass 
 
 class AlreadyExists(Exception):
     pass
 
+class NotImplemented(Exception):
+    pass
+
 def get(system, game):
     if not system in SYSTEMS:
-        raise NotFound
+        raise NotImplemented
     server, dir, ext = SYSTEMS[system]
     filename = "{}.{}".format(game, ext)
     if os.path.exists(os.path.join(system, filename)):
@@ -147,7 +150,7 @@ def parse_url(emup_url):
     return system, game
 
 def main():
-    args = docopt(__doc__, version="emuparadise 0.0.1")
+    args = docopt(__doc__)
     if args["--list-systems"]:
         print("\n".join(sorted(SYSTEMS.keys())))
     elif args["--url"]:
@@ -163,6 +166,9 @@ def main():
                 print("Try again. Has to be a number.")
             except IndexError:
                 print("Check your input. Ctrl-C to back out")
+            except KeyboardInterrupt:
+                print("\nAborted")
+                exit(127)
             if result["category"] == "Search for":
                 results = search(result["label"], p=True)
                 result = None
